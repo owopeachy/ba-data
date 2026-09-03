@@ -1,12 +1,12 @@
 # Blue Archive Data
 
-This repository brings together three complementary Blue Archive data sources in a format suitable for machine-readable lookup and LLM-assisted questions.
+This repository brings together three complementary Blue Archive data sources in a format suitable for machine-readable lookup and LLM-assisted questions. It does auto update from stokesia's sheet and midokuni's.
 
 - **[Midokuni Student Insights](https://docs.google.com/spreadsheets/d/e/2PACX-1vSy6oQtuHdRctuG8RIiwpwHFe2iS6D08WHWxdWQo4eCYlbQBVaZ8DWwtsgfokZRZ4gDxDqz25-jDlQZ/pubhtml)** — curated advice on student roles, banners, farming, and investment.
 - **[Stokkie’s Raid Rating](https://docs.google.com/spreadsheets/d/1VSzm_ioCt2AdRvkfL9HKNNZSbyslayVERXxVxR6nzh4/edit)** — community-maintained raid performance ratings and notes.
 - **[SchaleDB](https://github.com/SchaleDB/SchaleDB)** — objective game data, including students, skills, items, stages, equipment, crafting, and raids.
 
-The repository separates factual game data from curated recommendations:
+The repository separates raw game data from curated recommendations:
 
 - `schaledb/` contains the SchaleDB snapshot.
 - `midokuni/` contains Midokuni’s exported student insights and glossary.
