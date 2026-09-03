@@ -1,50 +1,39 @@
-# SchaleDB data
+# Midokuni Data
 
-This directory contains a manually maintained snapshot of objective Blue Archive game data from [SchaleDB](https://github.com/SchaleDB/SchaleDB).
+Structured Blue Archive data for machine-readable retrieval by MCP tools and LLMs.
 
-It is separate from [`midokuni.json`](../midokuni.json):
+This repository combines two deliberately separate sources:
 
-- **SchaleDB files** contain objective game data such as IDs, stats, drops, stages, raids, items, and recipes.
-- **`midokuni.json`** contains Midokuni’s curated opinions, recommendations, and reasoning.
+- **Midokuni analysis** — curated opinions, recommendations, and reasoning.
+- **SchaleDB data** — objective game data such as students, stages, items, raids, drops, and crafting.
 
-## File map
+## Repository contents
 
-| Data type | File |
-| --- | --- |
-| Students, stats, skills, IDs, and requirements | `students.json` |
-| Raid bosses and mechanics | `raids.json` |
-| Stages, rewards, and drop locations | `stages.json` |
-| Items, materials, and uses | `items.json` |
-| Crafting recipes and requirements | `crafting_global.json` |
-| Equipment and gear | `equipment.json` |
-| Furniture | `furniture.json` |
-| Currency definitions | `currency.json` |
-| Enemies | `enemies.json` |
-| Summoned units | `summons.json` |
-| Text and localized names | `localization.json` |
+```text
+midokuni-data/
+├── midokuni.json
+└── schaledb/
+    ├── README.md
+    └── *.json
+```
 
-Prefer unminified JSON files for retrieval and inspection. Minified copies are only optimization artifacts.
+### `midokuni.json`
 
-## Retrieval guidance
+A single JSON document containing one object per student.
 
-- For student recommendations, consult the relevant student object in `../midokuni.json`.
-- For objective student facts, use `students.json`.
-- For drops and farming locations, use `stages.json` together with `items.json`.
-- For crafting and item-counting questions, use `items.json` and `crafting_global.json`.
-- For raid questions, use `raids.json`; consult stage and item data when rewards or farming are involved.
-- When combining sources, clearly distinguish objective SchaleDB data from Midokuni’s curated analysis.
-- Preserve SchaleDB field names and IDs when replacing files.
-- Treat this directory as a dated snapshot. Record the snapshot date in the commit message whenever the data is refreshed.
-- Missing, empty, and zero values are different; do not treat a missing field as zero.
+Each student object has a stable, fixed schema. Fields that do not apply to a student are retained with `null` values rather than being omitted.
 
-## Source and freshness
+The Midokuni fields include:
 
-The upstream SchaleDB repository is archived, so this folder may not include the latest game updates. Check the snapshot date before relying on time-sensitive data.
+- Availability: `both`, `banner`, or `farmable`
+- Banner guidance: TL;DR, must-roll conditions, skip guidance, use cases, investment recommendations, and thoughts
+- Farmable guidance: farming source, farming type, investment advice, alternatives, and farming thoughts
+- General thoughts: TL;DR, low-investment use, and late-game use
 
-Upstream English data:
+This file represents **Midokuni’s curated analysis**, not objective game data.
 
-<https://github.com/SchaleDB/SchaleDB/tree/main/data/en>
+### `schaledb/`
 
-GitHub API directory listing:
+A manually maintained snapshot of structured data from [SchaleDB](https://github.com/SchaleDB/SchaleDB).
 
-<https://api.github.com/repos/SchaleDB/SchaleDB/contents/data/en>
+See [`schaledb/README.md`](schaledb/README.md) for the file map and lookup
