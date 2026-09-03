@@ -14,6 +14,6 @@ The repository separates factual game data from curated recommendations:
 
 For guidance on using these files in an automated or LLM workflow, see [AGENTS.md](AGENTS.md). Each source folder also contains a README describing its data and intended use (for the agents).
 
-**Many thanks to the people who create, maintain, and publish these resources. <3 Their work made this possible, i'm just a filthy LLM user **
+*Many thanks to the people who create, maintain, and publish these resources. <3 Their work made this possible, i'm just a filthy LLM user*
 
 These are snapshots and are probably already outdated. i play with old units. Please visit the original sources above for the latest data, corrections, explanations, and update history.
