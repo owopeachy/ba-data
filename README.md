@@ -1,39 +1,19 @@
-# Midokuni Data
+# Blue Archive Data
 
-Structured Blue Archive data for machine-readable retrieval by MCP tools and LLMs.
+This repository brings together three complementary Blue Archive data sources in a format suitable for machine-readable lookup and LLM-assisted questions.
 
-This repository combines two deliberately separate sources:
+- **[Midokuni Student Insights](https://docs.google.com/spreadsheets/d/e/2PACX-1vSy6oQtuHdRctuG8RIiwpwHFe2iS6D08WHWxdWQo4eCYlbQBVaZ8DWwtsgfokZRZ4gDxDqz25-jDlQZ/pubhtml)** — curated advice on student roles, banners, farming, and investment.
+- **[Stokkie’s Raid Rating](https://docs.google.com/spreadsheets/d/1VSzm_ioCt2AdRvkfL9HKNNZSbyslayVERXxVxR6nzh4/edit)** — community-maintained raid performance ratings and notes.
+- **[SchaleDB](https://github.com/SchaleDB/SchaleDB)** — objective game data, including students, skills, items, stages, equipment, crafting, and raids.
 
-- **Midokuni analysis** — curated opinions, recommendations, and reasoning.
-- **SchaleDB data** — objective game data such as students, stages, items, raids, drops, and crafting.
+The repository separates factual game data from curated recommendations:
 
-## Repository contents
+- `schaledb/` contains the SchaleDB snapshot.
+- `midokuni/` contains Midokuni’s exported student insights and glossary.
+- `stokesia/` contains Stokesia/Causew’s raid-performance export.
 
-```text
-midokuni-data/
-├── midokuni.json
-└── schaledb/
-    ├── README.md
-    └── *.json
-```
+For guidance on using these files in an automated or LLM workflow, see [AGENTS.md](AGENTS.md). Each source folder also contains a README describing its data and intended use (for the agents).
 
-### `midokuni.json`
+**Many thanks to the people who create, maintain, and publish these resources. <3 Their work made this possible, i'm just a filthy LLM user **
 
-A single JSON document containing one object per student.
-
-Each student object has a stable, fixed schema. Fields that do not apply to a student are retained with `null` values rather than being omitted.
-
-The Midokuni fields include:
-
-- Availability: `both`, `banner`, or `farmable`
-- Banner guidance: TL;DR, must-roll conditions, skip guidance, use cases, investment recommendations, and thoughts
-- Farmable guidance: farming source, farming type, investment advice, alternatives, and farming thoughts
-- General thoughts: TL;DR, low-investment use, and late-game use
-
-This file represents **Midokuni’s curated analysis**, not objective game data.
-
-### `schaledb/`
-
-A manually maintained snapshot of structured data from [SchaleDB](https://github.com/SchaleDB/SchaleDB).
-
-See [`schaledb/README.md`](schaledb/README.md) for the file map and lookup
+These are snapshots and are probably already outdated. i play with old units. Please visit the original sources above for the latest data, corrections, explanations, and update history.
